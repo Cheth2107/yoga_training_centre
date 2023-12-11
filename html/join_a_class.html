@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+<div class="main">
+    <div class="register">
+        <h2>Register Here</h2>
+        <form id="register" method="post">
+            <table>
+                <tr>
+                    <td><label for="firstName">First Name :</label></td>
+                    <td><input type="text" name="fname" id="firstName" placeholder="Enter Your First Name"></td>
+                </tr>
+                <tr>
+                    <td><label for="lastName">Last Name :</label></td>
+                    <td><input type="text" name="lname" id="lastName" placeholder="Enter Your Last Name"></td>
+                </tr>
+                <tr>
+                    <td><label for="age">Your Age :</label></td>
+                    <td><input type="number" name="age" id="age" placeholder="Enter Your Age"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email :</label></td>
+                    <td><input type="email" name="email" id="email" placeholder="Enter Your Email ID"></td>
+                </tr>
+                <tr>
+                    <td><label for="phoneNumber">Phone Number :</label></td>
+                    <td><input type="number" name="number" id="phoneNumber" placeholder="00000 00000"></td>
+                </tr>
+                <tr>
+                    <td><label>Gender :</label></td>
+                    <td>
+                        <input type="radio" name="gender" id="male">
+                        <span id="maleLabel">Male</span>
+                        <input type="radio" name="gender" id="female">
+                        <span id="femaleLabel">Female</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="date">Date Of Birth:</label></td>
+                    <td><input type="date" name="date" id="date"></td>
+                </tr>
+                <tr>
+                    <td><label>Schedule Preference :</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="checkbox1">
+                            <input type="checkbox" name="schedule" id="checkbox1" class="schedule-checkbox">
+                            Morning Session - 5:30AM to 6:30AM
+                        </label><br>
+                        <label for="checkbox2">
+                            <input type="checkbox" name="schedule" id="checkbox2" class="schedule-checkbox">
+                            Morning Session - 6:30AM to 7:30AM
+                        </label><br>
+                        <label for="checkbox3">
+                            <input type="checkbox" name="schedule" id="checkbox3" class="schedule-checkbox">
+                            Evening Session - 5:30PM to 6:30PM
+                        </label><br>
+                        <label for="checkbox4">
+                            <input type="checkbox" name="schedule" id="checkbox4" class="schedule-checkbox">
+                            Evening Session - 6:30PM to 7:30PM
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Class Level :</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="levelCheckbox1">
+                            <input type="checkbox" name="classLevel" id="levelCheckbox1">
+                            Level 1 - Beginner Class
+                        </label><br>
+                        <label for="levelCheckbox2">
+                            <input type="checkbox" name="classLevel" id="levelCheckbox2">
+                            Level 2 - Intermediate Class
+                        </label><br>
+                        <label for="levelCheckbox3">
+                            <input type="checkbox" name="classLevel" id="levelCheckbox3">
+                            Level 3 - Advanced Class
+                        </label>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Submit button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkboxes = document.querySelectorAll('.schedule-checkbox');
+
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                if (this.checked) {
+                    // Disable other checkboxes
+                    checkboxes.forEach(function (otherCheckbox) {
+                        if (otherCheckbox !== checkbox) {
+                            otherCheckbox.disabled = true;
+                        }
+                    });
+                } else {
+                    // Enable all checkboxes
+                    checkboxes.forEach(function (otherCheckbox) {
+                        otherCheckbox.disabled = false;
+                    });
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
